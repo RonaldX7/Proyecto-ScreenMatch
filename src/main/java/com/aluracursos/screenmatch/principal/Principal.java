@@ -183,11 +183,12 @@ public class  Principal {
 
     private void buscarTop5Episodios() {
         buscarSeriesPorTitulo();
+
         if(serieBuscada.isPresent()) {
             Serie serie = serieBuscada.get();
             List<Episodio> topEpisodios = repositorio.top5Episodios(serie);
             topEpisodios.forEach(e -> System.out.printf("Serie: %s - Temporada %s - Episodio %s - Evaluación %s\n",
-                    e.getSerie(), e.getTemporada(), e.getNumeroEpisodio(), e.getEvaluacion()));
+                    e.getSerie().getTitulo(), e.getTemporada(), e.getTitulo(), e.getEvaluacion()));
         }
     }
 }
